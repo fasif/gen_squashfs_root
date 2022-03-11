@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "enable bluetooth discoverable"
+bluetoothctl discoverable on
+
+echo "register spp"
+`dirname $0`/spp-register.rb &
+
+echo "getty on rfcomm0"
+rfcomm watch 0 1 getty rfcomm0 115200 vt100 &

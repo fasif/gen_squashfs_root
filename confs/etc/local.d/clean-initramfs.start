@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Cleaning /run/initramfs to free ram"
+cd /run/initramfs
+ls -1 | fgrep -v memory | xargs rm -rf
